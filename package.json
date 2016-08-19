@@ -10,7 +10,7 @@
     "build:html": "cp -r src/index.html dist/",
     "build:scripts": "uglifyjs src/scripts/main.js -c --source-map --screw-ie8 -o dist/scripts/main.js",
     "build:images": "cp -rf src/images/* dist/images/",
-    "build:vendor": "uglifyjs node_modules/jquery/dist/jquery.js node_modules/bootstrap/dist/js/bootstrap.js -o dist/scripts/bundle.js && css-bundler node_modules/bootstrap/dist/css/bootstrap.min.css dist/css/bundle.css && cp node_modules/bootstrap/dist/css/bootstrap.min.css.map dist/css/bootstrap.min.css.map",
+    "build:vendor": "uglifyjs node_modules/handlebars/dist/handlebars.min.js node_modules/jquery/dist/jquery.js node_modules/bootstrap/dist/js/bootstrap.js -o dist/scripts/bundle.js && css-bundler node_modules/bootstrap/dist/css/bootstrap.min.css dist/css/bundle.css && cp node_modules/bootstrap/dist/css/bootstrap.min.css.map dist/css/bootstrap.min.css.map",
     "build:styles": "node-sass --output-style compressed --source-map=true -o dist/css src/styles",
     "watch:html": "onchange src/**/*.html -- npm run build:html",
     "watch:js": "onchange src/**/*.js -- npm run build:scripts",
@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "handlebars": "^4.0.5",
     "jquery": "^3.1.0"
   }
 }
