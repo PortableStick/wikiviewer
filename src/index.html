@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Wikipedia Viewer</title>
+    <meta charset="UTF-8">
+    <title>Wikipedia Viewer</title>
+    <script src="https://use.fontawesome.com/1435929d81.js"></script>
+    <link rel="stylesheet" href="css/bundle.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-  <!-- Back button -->
-  <!-- Github button -->
+    <nav class="navbar navbar-default" role="navigation">
+        <ul class="nav navbar-nav">
+            <li class="nav-item"><a href="../" class="nav-link">Back to main page</a></li>
+        </ul>
+        <h1 class="">Wikipedia Viewer</h1>
+        <ul class="nav navbar-nav pull-right">
+            <li class="nav-item"><a href="https://github.com/PortableStick/wikiviewer" class="nav-link" target="_blank">Check me out on <i class="fa fa-github"></i> GitHub</a></li>
+        </ul>
+    </nav>
+    <main class="container-fluid">
+        <div class="row">
+            <section id="search-area">
+                <form action="//localhost:3000/wikiviewer" class="form-inline">
+                    <input type="search" placeholder="search" class="form-control">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <ul class="saved-searches list-group"></ul>
+            </section>
+            <section id="results-area">
+            </section>
+        </div>
+    </main>
+    <script src="scripts/bundle.js"></script>
+    <script src="scripts/main.js"></script>
 </body>
+
 </html>
