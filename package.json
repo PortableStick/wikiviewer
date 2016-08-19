@@ -1,0 +1,44 @@
+{
+  "name": "wikiviewer",
+  "version": "1.0.0",
+  "description": "A remake of my Wikipedia viewer project for fCC",
+  "main": "dist/index.html",
+  "scripts": {
+    "server": "browser-sync start -s 'dist' -f 'dist'",
+    "cleanup": "rm -rf dist/*",
+    "setupfolder": "mkdir -p dist/scripts dist/css dist/images",
+    "build:html": "cp -r src/index.html dist/",
+    "build:scripts": "uglifyjs src/scripts/main.js -c --source-map --screw-ie8 -o dist/scripts/main.js",
+    "build:images": "cp -rf src/images/* dist/images/",
+    "build:vendor": "uglifyjs node_modules/jquery/dist/jquery.js node_modules/bootstrap/dist/js/bootstrap.js -o dist/scripts/bundle.js && css-bundler node_modules/bootstrap/dist/css/bootstrap.min.css dist/css/bundle.css && cp node_modules/bootstrap/dist/css/bootstrap.min.css.map dist/css/bootstrap.min.css.map",
+    "build:styles": "node-sass --output-style compressed --source-map=true -o dist/css src/styles",
+    "watch:html": "onchange src/**/*.html -- npm run build:html",
+    "watch:js": "onchange src/**/*.js -- npm run build:scripts",
+    "watch:styles": "onchange src/styles/*.scss -- npm run build:styles",
+    "build": "npm run cleanup && npm run setupfolder && npm run build:vendor && npm run build:html && npm run build:scripts && npm run build:styles",
+    "start": "npm run build && run-p watch:* server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PortableStick/wikiviewer.git"
+  },
+  "author": "Greg Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PortableStick/wikiviewer/issues"
+  },
+  "homepage": "https://github.com/PortableStick/wikiviewer#readme",
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "css-bundler": "^0.1.2",
+    "node-sass": "^3.8.0",
+    "npm-run-all": "^2.3.0",
+    "onchange": "^2.5.0",
+    "watchify": "^3.7.0",
+    "uglify-js": "^2.7.3"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0"
+  }
+}
