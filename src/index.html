@@ -21,17 +21,24 @@
     </nav>
     <main class="container-fluid">
         <div class="row">
-            <section id="search-area">
-                <form action="//localhost:3000/wikiviewer" class="form-inline">
-                    <input type="search" placeholder="search" class="form-control">
-                    <button type="submit" class="btn btn-primary">Search</button>
+            <section id="search-area" class="col-md-3">
+                <form method="POST" action="//localhost:9000/wikiview" class="form-inline" id="search-form">
+                    <input type="search" placeholder="search" class="form-control" id="search-term">
+                    <button type="submit" class="btn btn-primary" id="search-now">Search</button>
                 </form>
                 <ul class="saved-searches list-group"></ul>
             </section>
-            <section id="results-area">
+            <section id="results-area" class="col-md-9">
+              <ul id="results-list"></ul>
             </section>
         </div>
     </main>
+    <template id="result-template">
+      <a href="{{url}}">
+        <h2>{{title}}</h2>
+      </a>
+      <p>{{{snippet}}}</p>
+    </template>
     <script src="scripts/bundle.js"></script>
     <script src="scripts/main.js"></script>
 </body>
