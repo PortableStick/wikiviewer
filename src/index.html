@@ -26,8 +26,8 @@
                     <input type="search" placeholder="search" class="form-control input-lg" id="search-term">
                     <button type="submit" class="btn btn-primary btn-lg" id="search-now">Search</button>
                 </form>
+                <h3>Recent searches</h3>
                 <ul class="saved-searches list-group">
-                  <li class="list-group-item tmp"><span class="faded-text">Recent searches will go here</span></li>
                 </ul>
             </section>
             <section id="results-area" class="col-md-9">
@@ -44,7 +44,7 @@
       </div>
     </template>
     <template id="saved-search-template">
-      <li class="saved-search list-group-item">{{searchTerm}}</li>
+      <li class="saved-search list-group-item" id="{{searchTerm}}"><span class="search-term">{{searchTerm}}</span> <span class="badge">X</span></li>
     </template>
     <script src="scripts/bundle.js"></script>
     <script src="scripts/main.js"></script>

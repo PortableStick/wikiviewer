@@ -39,9 +39,25 @@
     li:first-child {
       margin-top: 20px;
     }
+
+    .search-term {
+      cursor: pointer;
+    }
+
+    &:hover .badge {
+      opacity: 1;
+    }
+
+    .badge {
+      opacity: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 
-  .faded-text {
+  h3 {
     color: rgba(0, 0, 0, 0.4);
   }
 }
