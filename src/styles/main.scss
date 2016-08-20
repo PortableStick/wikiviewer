@@ -2,6 +2,7 @@
 
 .navbar {
   text-align: center;
+  margin-bottom: 0;
 
   h1 {
     display: inline-block;
@@ -9,4 +10,44 @@
     margin: 0;
     padding-top: 15px;
   }
+}
+
+.container-fluid {
+  margin-top: 50px;
+  height: calc(100vh - 50px);
+
+  .row {
+    height: 100%;
+  }
+}
+
+//Search area
+#search-area {
+  border-right: 1px solid black;
+  height: 100%;
+  -webkit-user-select: none;
+
+  form {
+    margin-top: 25px;
+  }
+
+  .saved-searches {
+    .hidden {
+      display: none;
+    }
+
+    li:first-child {
+      margin-top: 20px;
+    }
+  }
+
+  .faded-text {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+#results-area {
+  padding-left: 0;
+  height: 100%;
+  overflow: auto;
 }
