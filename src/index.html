@@ -22,9 +22,8 @@
     <main class="container-fluid">
         <div class="row">
             <section id="search-area" class="col-md-3">
-                <form method="POST" action="//localhost:9000/wikiview" class="form-inline" id="search-form">
-                    <input type="search" placeholder="search" class="form-control input-lg" id="search-term">
-                    <button type="submit" class="btn btn-primary btn-lg" id="search-now">Search</button>
+                <form class="form-inline" id="search-form">
+                    <input type="search" placeholder="search" class="form-control input-lg" id="search-term" autocomplete="off" autofocus="true">
                 </form>
                 <h3>Recent searches</h3>
                 <ul class="saved-searches list-group">
@@ -46,7 +45,7 @@
     <template id="saved-search-template">
       <li class="saved-search list-group-item" id="{{searchTerm}}"><span class="search-term">{{searchTerm}}</span> <span class="badge">X</span></li>
     </template>
-    <script src="scripts/bundle.js"></script>
+    <script src="scripts/vendor.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 
