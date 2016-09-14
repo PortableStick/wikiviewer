@@ -24,35 +24,28 @@
 //Search area
 #search-area {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
-  height: 100%;
+  height: calc(100vh - 50px);
   -webkit-user-select: none;
+  text-overflow: scroll;
 
   form {
     margin-top: 25px;
   }
 
-  .saved-searches {
-    .hidden {
-      display: none;
-    }
-
+  .top-searches {
+    list-style-type: none;
     li:first-child {
       margin-top: 20px;
     }
 
-    .search-term {
+    .top-search{
+      padding: 10px 0;
+      text-align: center;
       cursor: pointer;
-    }
-
-    &:hover .badge {
-      opacity: 1;
-    }
-
-    .badge {
-      opacity: 0;
-
-      &:hover {
-        cursor: pointer;
+      border: 1px solid black;
+      margin: 10px 0;
+      .top-search-link {
+        text-decoration: none;
       }
     }
   }

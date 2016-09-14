@@ -24,9 +24,10 @@
             <section id="search-area" class="col-md-3">
                 <form class="form-inline" id="search-form">
                     <input type="search" placeholder="search" class="form-control input-lg" id="search-term" autocomplete="off" autofocus="true">
+                    <a href="http://en.wikipedia.org/wiki/Special:Random" target="_blank" class="btn btn-primary btn-lg">Random</a>
                 </form>
-                <h3>Recent searches</h3>
-                <ul class="saved-searches list-group">
+                <h3>Trending searches</h3>
+                <ul class="top-searches list-group">
                 </ul>
             </section>
             <section id="results-area" class="col-md-9">
@@ -42,8 +43,10 @@
         <p>{{{snippet}}}</p>
       </div>
     </template>
-    <template id="saved-search-template">
-      <li class="saved-search list-group-item" id="{{searchTerm}}"><span class="search-term">{{searchTerm}}</span> <span class="badge">X</span></li>
+    <template id="top-search-template">
+        <li class="row top-search">
+            <a href="{{{url}}}" class="top-search-link" target="_blank">{{title}}</a>
+        </li>
     </template>
     <script src="scripts/vendor.js"></script>
     <script src="scripts/main.js"></script>

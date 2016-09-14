@@ -4,23 +4,18 @@ import { Observable } from 'rxjs';
 
 const $searchBox = $('#search-term'),
         $resultsList = $('#results-list'),
-        $savedSearches = $('.saved-searches'),
+        $topSearches = $('.top-searches'),
         resultsTemplate = Handlebars.compile($('#result-template').html()),
-        savedSearchTemplate = Handlebars.compile($('#saved-search-template').html());
+        topSearchTemplate = Handlebars.compile($('#top-search-template').html());
 
-Observable.fromEvent(document, 'load').flatMap(Observable.create(observer => {
-    if (localStorage.getItem('searches')) {
-        observer.next(JSON.parse(localStorage.getItem('searches')));
-    } else {
-        observer.next([]);
-    }
-})).subscribe(searchTerm => {
-    if(searchTerm.length > 0) {
-        savedSearches.append(savedSearchTemplate({
-            "searchTerm": searchTerm
-        }));
-    }
-});
+Observable.fromEvent(document, 'DOMContentLoaded')
+    .flatMap(() => Observable.ajax('http://localhost:9000/wikiview/top25'))
+    .map(response => response.response)
+    .flatMap(response => response)
+    .map(response => ({title: response.title.replace(/_/g, ' '), url: response.url}))
+    .subscribe(searchTerm => {
+        $topSearches.append(topSearchTemplate(searchTerm));
+    });
 
 Observable.fromEvent($searchBox, 'keyup')
 .debounceTime(500)
