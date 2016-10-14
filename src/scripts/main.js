@@ -9,7 +9,7 @@ const $searchBox = $('#search-term'),
         topSearchTemplate = Handlebars.compile($('#top-search-template').html());
 
 Observable.fromEvent(document, 'DOMContentLoaded')
-    .flatMap(() => Observable.ajax('http://localhost:9000/wikiview/top25'))
+    .flatMap(() => Observable.ajax('https://api.gregoftheweb.com/wikiview/top25'))
     .map(response => response.response)
     .flatMap(response => response)
     .map(response => ({title: response.title.replace(/_/g, ' '), url: response.url}))
@@ -23,7 +23,7 @@ Observable.fromEvent($searchBox, 'keyup')
 .map(e => ({"searchTerm": e.target.value}))
 .filter(term => term.searchTerm.length > 0)
 .flatMap(term => Observable.ajax({
-        "url": 'http://localhost:9000/wikiview',
+        "url": 'https://api.gregoftheweb.com/wikiview',
         "method": "POST",
         "body": term,
         "responseType": "json",
