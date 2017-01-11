@@ -1,4 +1,4 @@
-//Navbar
+/* Navbar */
 
 .navbar {
   text-align: center;
@@ -21,29 +21,36 @@
   }
 }
 
-//Search area
+/* Search area */
 #search-area {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   height: calc(100vh - 50px);
   -webkit-user-select: none;
   text-overflow: scroll;
+  text-align: center;
 
-  form {
+  #search-term {
     margin-top: 25px;
+  }
+
+  #random-btn {
+    margin-top: 5px;
   }
 
   .top-searches {
     list-style-type: none;
+
     li:first-child {
       margin-top: 20px;
     }
 
-    .top-search{
+    .top-search {
       padding: 10px 0;
       text-align: center;
       cursor: pointer;
       border: 1px solid black;
       margin: 10px 0;
+
       .top-search-link {
         text-decoration: none;
       }
